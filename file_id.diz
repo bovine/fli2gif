@@ -1,0 +1,6 @@
+FLI2GIF version 1.1 (06 Sept 96)
+Converts Autodesk flics into Animated
+GIFs, suitable for WWW pages.  This
+version corrects a serious compression
+bug, adds increased portability, and
+also a Win32 version.  Full source!
