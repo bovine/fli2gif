@@ -1,0 +1,179 @@
+FLI2GIF
+
+
+DESCRIPTION
+===========
+Well folks, this is the second release of a graphics utility that should
+be useful to nearly anyone wanting to develop nifty looking world wide
+web pages.
+
+
+This little program will take an Autodesk Flic (FLI/FLC) file and convert
+all of its frames into sequential images in a GIF89a file, along with a
+Netscape application extension animation chunk.  This allows you to easily
+create animated GIF's that are viewable by Netscape Navigator 2 and
+Microsoft Internet Explorer 3 (and above) users.
+
+
+This capability is especially useful because there currently exist no
+easy to use animated GIF creation programs.  Typically, if you want to
+create such an animation, you must use create multiple single-image
+files and use one of the various utilities available to combine them.
+
+
+By using my program, you can use any animation program that can output
+Autodesk Flic files.  This includes Autodesk Animator, Autodesk Animator
+Pro, Autodesk 3D-Studio, and many others.  Additionally, there exist
+utilities to convert from nearly any other animation format into the
+flic format, allowing even more possibilities of animation conversion
+without having to resort to saving out individual frames to separate files.
+
+
+This package should include a 16-bit DOS version of the program, in
+addition to a 32-bit Win32 command-line version.  The Win32 version will
+run under Windows 95 or Windows NT at a command prompt and is better
+than the 16-bit DOS version because it is not limited to only using
+convention memory (below 640k).
+
+
+Additionally, the included source code has been successfully compiled
+under the GNU C++ compiler.  This means that you should be able to
+recompile this utility under most UNIX environments without any problems.
+
+
+USAGE
+=====
+Just run FLI2GIF with the filename of your flic file and the filename of
+your desired GIF file.
+
+
+By default, FLI2GIF will assume that color 0 is the background color used
+in the animation and will try to crop each frame to the smallest region
+possible.  The background color will also be made transparent in the
+final GIF.  If you do not want the background color made transparent,
+specify the "/T" option.
+
+
+If you used a background color other than 0, you can use the "/B" option
+to specify the appropriate color.  An example of using this command line
+option would be "FLI2GIF myflic.flc mygif.gif /B42"
+
+
+If FLI2GIF detects that it is unable to crop the animation any smaller,
+your animation may already be optimally cropped, or you may have used a
+background color other than 0.  In such a case, it will try to suggest
+the color that dominates two of the edges of your animation and display
+its number.  You can specify this color using the /B option.
+
+
+You can also have FLI2GIF interlace the images in your flic with the /I
+option.  This is typically not very useful in animated gifs, though it
+can produce some interesting effects.
+
+
+Specifying the /C option will tell FLI2GIF to do a "best crop" for each
+frame.  Without this option, all frames will be cropped to the smallest
+common rectangle and translational offsets will be used to properly
+compensate for the different frame sizes.  Using this option will produce
+slightly smaller GIFs, but be warned that not all programs correctly
+interpret the translational offsets and will cause your frames to 'jump'
+in position occasionally.  Microsoft Internet Explorer 3.0 is one of
+the programs that ignores the offsets.
+
+
+NOTES
+=====
+The Autodesk .FLC format allows for animations with varying color depths.
+Unfortunately, I have only added support for 256 color animations.  If
+you have an animation with a different color depth, you will have to
+process it so that it contains only 256 colors.  A good MS-DOS command
+line utility that can do this is VFD 1.6g (Video for DOS).  You can
+download that handy program from various places on the Internet, including
+the "animate" directory on the Simtel.net archive.  Just one of the many
+URLs from which it can be downloaded from is
+http://www.cdrom.com/pub/simtelnet/msdos/animate/vfd16g.zip
+
+For more information on the Autodesk Flic format, please visit the URL
+http://crusty.er.usgs.gov/flc.html
+
+
+
+SOURCE CODE
+===========
+The source code is provided in order to allow others to possibly add additional
+functionality or resolve some of its current limitations (256 color
+requirement, flic only support, conventional memory requirement, etc).
+However, I do request that if you make any changes to it that you at
+least send me a copy of your changes so that I can continue to distribute
+the latest version to those who need to download it.
+
+
+All of the source code was designed to be compiled with Borland C++ 4.52,
+though it is possible that it may work under compilers by different
+vendors.  Similary, if you make changes that allow it to compile under
+different compilers, send me a copy of the source.
+
+
+I've been recently able to get the source to compile under a version of
+GNU C++ on one of the UNIX machines that I happened to try it on, though I
+haven't done very extensive testing of things under it.  Much effort was
+made to try to make the source non-dependent upon the byte ordering used
+by the target platform, so I don't expect any major problems.  Note that
+UNIX machines typically expect C++ programs to have an extension of .cc
+or .cxx, while all of my files are named .cpp to match the DOS standard.
+You'll either have to rename them before trying a UNIX compile, or force
+your compiler to do a C++ compile on my code.
+
+
+The flic and gif handling code source was based on freely available code
+and documentation, though everything you see in this archive has been
+throughly rehacked a bit by me.
+
+
+
+DISTRIBUTION
+============
+This program and its source code is distributed under the terms of 
+a BSD-style license. Please see the separate LICENSE file for specifics.
+
+Note that all registered trademarks mentioned in this document are property
+of their respective owners.
+
+
+REVISION LOG
+============
+28 July, 1996     v1.0
+-----------------------
+* Initial release.
+  
+6 September, 1996   v1.1
+------------------------
+* Changes to source made to allow successful compilation under GNU C++,
+        Borland C++ (Win32), and Microsoft Visual C++.
+* Added support to flic routines to skip Animator Pro prefix chunks that
+        may be found in animations.  Unknown if necessary.
+* BestCrop is now disabled by default, but can be enabled with the
+        new /C option.
+* Now only requires one filename to be specified on the command-line (a
+        target name will be made up).  Allows easy drag and drop from Win95.
+* Resolved a major bug that would most definitely cause the compression
+        code to lock up on complicated images (ie: when the hash table
+        needed to be cleared).
+* The FLI2GIF.EXE executable included in the distribution archive is now
+        a dual-mode program.  When it is run at a plain DOS prompt, the
+        standard 16-bit DOS version will execute.  When it is run inside of
+        a Win95 or WinNT command prompt, a Win32 version will execute.  The
+        Win32 version does not have the conventional memory limitation that
+        the 16-bit version has, thus allowing you to convert flics as
+        large as you like.
+                         
+
+
+How to reach the author
+=======================
+I can reached through E-mail at:
+
+        jeff@bovine.net
+
+The latest version of this program should always be available from my home
+page at https://github.com/bovine/fli2gif/
