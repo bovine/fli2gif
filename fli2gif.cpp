@@ -71,7 +71,7 @@ void main(int argc, char *argv[])
     // |  Initialization  |
     // []----------------[]
     printf("FLI2GIF.EXE -- Automatic Flic to Animated GIF convertor, v1.1\n");
-    printf("   by JL Enterprises, 1996.  (Compiled with "
+    printf("   by Jeff Lawson, 1996.  (Compiled with "
         #if defined(__TURBOC__)
             "Borland"
         #elif defined(_MSC_VER)
@@ -326,7 +326,7 @@ void handle_error(int errorcode)
         case NO_MEMORY: printf("Insufficient conventional memory available.\n"); break;
         case BAD_FLIC: printf("Flic error.  Possibly corrupted file?\n"); break;
         case BAD_SYNTAX:
-            printf("Syntax:  FLI2GIF [options] ®flic.FL?¯ [output.GIF]\n"
+            printf("Syntax:  FLI2GIF [options] Â®flic.FL?Â¯ [output.GIF]\n"
                    "Options:  /I  = interlace all images\n"
                    "          /T  = do NOT make color-0 transparent\n"
                    "          /Bn = specify background color (n=color)\n"
@@ -336,8 +336,8 @@ void handle_error(int errorcode)
 #endif                   
                    "\n"
                    "The latest version of this utility can be found on my home page at\n"
-                   "http://members.aol.com/JeffLawson/ or you can e-mail me directly at\n"
-                   "JeffLawson@aol.com or jlawson@hmc.edu\n"
+                   "http://www.bovine.net/ or you can e-mail me directly at\n"
+                   "jeff@bovine.net\n"
             ); break;
         case SAMENAME_ERROR: printf("Input and output filenames are the same!\n"); break;
         case FILE_ERROR: printf("Error opening the specified flic file.\n"); break;
