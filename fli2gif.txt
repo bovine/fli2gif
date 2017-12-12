@@ -194,21 +194,9 @@ of their respective owners.
 *********************************
 ***  How to reach the author  ***
 *********************************
-I can reached via Snail-mail at (please note that this address is different
-from the one previously stated in older versions of the editor):
+I can reached through E-mail at:
 
-        Jeff Lawson
-        1893 Kaweah Drive
-        Pasadena, CA 91105-2174
-        USA
+    jeff@bovine.net
 
-or through E-mail at:
-
-        jlawson@hmc.edu    or    JeffLawson@aol.com
-
-also via phone at:
-
-        (213) 258-4264     or    (213) 258-5604
-
-The latest version of this program should always be available from my home
-page at "http://members.aol.com/JeffLawson/"
+The latest version of this program should always be available from my 
+home page at https://github.com/bovine/fli2gif/
