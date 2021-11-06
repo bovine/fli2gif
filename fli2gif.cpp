@@ -9,7 +9,9 @@
 // ******************
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
+#if defined(_MSC_VER) || defined(__TURBOC__) || defined(__linux__)
+#   include <malloc.h>
+#endif
 #include <string.h>
 #if defined(__TURBOC__) || defined(_MSC_VER)
     #include <conio.h>
@@ -61,7 +63,7 @@ PixelType backgroundcolor = 0;
 //############################################################################
 //############################################################################
 //############################################################################
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     FILE *fp;
     int i, j;
